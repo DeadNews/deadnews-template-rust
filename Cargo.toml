@@ -6,11 +6,7 @@ description = "Rust Project Template"
 repository = "https://github.com/DeadNews/deadnews-template-rust"
 license = "MIT"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
-pyo3 = { version = "0.19.2", features = [
-    "abi3-py37",
-    "extension-module",
-    "multiple-pymethods",
-] }
+actix-web = "4.4.0"
+env_logger = "0.10.0"
+log = "0.4.20"
