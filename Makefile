@@ -1,20 +1,16 @@
 build:
 	cargo build
 
-setup-all: build setup-coverage-tools setup-rust-checks
+checks: test fmt clippy
 
-setup-coverage-tools:
-	cargo +stable install cargo-llvm-cov --locked
+test:
+	cargo test --all-features --workspace
 
-coverage: setup-coverage-tools
-	cargo llvm-cov --open
+fmt:
+	cargo fmt --all --check
 
-setup-rust-checks:
-	rustup component add rustfmt
-	cargo install cargo-audit
-	rustup component add clippy
+clippy:
+	cargo clippy --all-targets --all-features --workspace -- -D warnings
 
-checks: setup-rust-checks
-	cargo fmt -- --check
-	cargo audit
-	cargo clippy --all --all-targets --all-features -- -D warnings
+doc:
+	cargo doc --no-deps --document-private-items --all-features --workspace --examples
