@@ -1,4 +1,4 @@
-name: CD # Continuous Deployment
+name: CD
 
 on:
   push:
@@ -9,11 +9,18 @@ jobs:
   publish-cargo:
     name: Publishing to Cargo
     runs-on: ubuntu-latest
+    environment:
+      name: publish
     steps:
       - uses: actions/checkout@v4
 
       - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@1482605bfc5719782e1267fd0c0cc350fe7646b8 # v1
+        with:
+          toolchain: stable
 
-      - uses: Swatinem/rust-cache@v2
-      - run: cargo publish
+      - name: Rust Cache
+        uses: swatinem/rust-cache@a95ba195448af2da9b00fb742d14ffaaf3c21f43 # v2.7.0
+
+      - name: Publishing on crates.io
+        run: cargo publish

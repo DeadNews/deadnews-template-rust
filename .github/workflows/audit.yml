@@ -6,6 +6,7 @@ on:
       - "**/Cargo.toml"
       - "**/Cargo.lock"
   pull_request:
+    branches: ["main"]
 
 jobs:
   audit:
@@ -13,12 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Ensure that the latest version of Cargo is installed
       - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@1482605bfc5719782e1267fd0c0cc350fe7646b8 # v1
+        with:
+          toolchain: stable
 
-      - uses: Swatinem/rust-cache@v2
+      - name: Rust Cache
+        uses: swatinem/rust-cache@a95ba195448af2da9b00fb742d14ffaaf3c21f43 # v2.7.0
 
-      - uses: actions-rs/audit-check@v1
+      - name: Cargo audit
+        uses: actions-rs/audit-check@35b7b53b1e25b55642157ac01b4adceb5b9ebef3 # v1.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
