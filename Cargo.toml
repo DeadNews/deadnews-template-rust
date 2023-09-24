@@ -5,6 +5,7 @@ edition = "2021"
 description = "Rust Project Template"
 repository = "https://github.com/DeadNews/deadnews-template-rust"
 license = "MIT"
+keywords = ["template", "sample"]
 
 [dependencies]
 actix-web = "4.4.0"

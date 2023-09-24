@@ -9,8 +9,7 @@ jobs:
   publish-cargo:
     name: Publishing to Cargo
     runs-on: ubuntu-latest
-    environment:
-      name: publish
+    environment: publish
     steps:
       - uses: actions/checkout@v4
 
@@ -24,3 +23,5 @@ jobs:
 
       - name: Publishing on crates.io
         run: cargo publish
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
