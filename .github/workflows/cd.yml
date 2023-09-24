@@ -8,8 +8,8 @@ on:
 jobs:
   publish-cargo:
     name: Publishing to Cargo
-    runs-on: ubuntu-latest
     environment: publish
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
