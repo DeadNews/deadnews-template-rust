@@ -10,8 +10,8 @@ permissions:
 
 jobs:
   publish-cargo:
-    name: Publishing to Cargo
-    environment: publish
+    name: Publishing on crates.io
+    environment: crates.io
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
