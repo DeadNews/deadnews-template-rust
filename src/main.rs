@@ -6,7 +6,7 @@ async fn main() -> std::io::Result<()> {
     env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
 
     // Log the start of the HTTP server
-    log::info!("Starting HTTP server at http://127.0.0.1:1271.");
+    log::info!("Starting HTTP server at http://0.0.0.0:8080.");
 
     // Create and run the HTTP server
     HttpServer::new(|| {
@@ -18,7 +18,7 @@ async fn main() -> std::io::Result<()> {
             .service(web::resource("/").to(index))
             .service(web::resource("/health").to(health_check_handler))
     })
-    .bind(("127.0.0.1", 1271))?
+    .bind(("0.0.0.0", 8080))?
     .run()
     .await
 }
