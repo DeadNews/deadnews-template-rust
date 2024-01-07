@@ -1,7 +1,17 @@
+.PHONY: build test
+
+default: build
+
 build:
 	cargo build
 
-checks: test fmt clippy
+pc-install:
+	pre-commit install
+
+checks: pc-run test
+
+pc-run:
+	pre-commit run -a
 
 test:
 	cargo test --all-features --workspace
