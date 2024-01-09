@@ -1,4 +1,4 @@
-.PHONY: build test
+.PHONY: all clean test checks default docker
 
 default: build
 
