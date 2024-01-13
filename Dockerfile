@@ -1,5 +1,5 @@
 # Build the application from source.
-FROM rust:1.74.1-slim@sha256:8f7df8eb8f5fc25284cb83a0ba6088a09c7d09490237f3393c62e8408491a6e6 as rust-builder
+FROM rust:1.75.0-slim@sha256:52d43338714f1939b0a54f2004f76b7cd0e7cb0e8297c909a2f54c1942f990ff as rust-builder
 
 WORKDIR /app
 
