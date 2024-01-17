@@ -1,13 +1,12 @@
 # Build the application from source.
 FROM rust:1.75.0-slim@sha256:52d43338714f1939b0a54f2004f76b7cd0e7cb0e8297c909a2f54c1942f990ff as rust-builder
 
+ENV CARGO_HOME="/cache/cargo"
+
 WORKDIR /app
 
 COPY Cargo.toml Cargo.lock ./
 COPY src/ ./src/
-
-# Maunt as dedicated RUN cache.
-ENV CARGO_HOME="/cache/cargo"
 RUN --mount=type=cache,target=${CARGO_HOME} \
     cargo build --release --locked
 
