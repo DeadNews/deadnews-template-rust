@@ -23,7 +23,7 @@ jobs:
           toolchain: stable
 
       - name: Rust Cache
-        uses: swatinem/rust-cache@a22603398250b864f7190077025cf752307154dc # v2.7.2
+        uses: swatinem/rust-cache@23bce251a8cd2ffc3c1075eaa2367cf899916d84 # v2.7.3
 
       - name: Cargo audit
         uses: actions-rs/audit-check@35b7b53b1e25b55642157ac01b4adceb5b9ebef3 # v1.2.0
