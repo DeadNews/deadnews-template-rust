@@ -22,7 +22,7 @@ jobs:
           toolchain: stable
 
       - name: Rust Cache
-        uses: swatinem/rust-cache@a22603398250b864f7190077025cf752307154dc # v2.7.2
+        uses: swatinem/rust-cache@23bce251a8cd2ffc3c1075eaa2367cf899916d84 # v2.7.3
 
       - name: Run tests
         run: make test
@@ -40,7 +40,7 @@ jobs:
           components: rustfmt
 
       - name: Rust Cache
-        uses: swatinem/rust-cache@a22603398250b864f7190077025cf752307154dc # v2.7.2
+        uses: swatinem/rust-cache@23bce251a8cd2ffc3c1075eaa2367cf899916d84 # v2.7.3
 
       - name: Check formatting
         run: make fmt
@@ -58,7 +58,7 @@ jobs:
           components: clippy
 
       - name: Rust Cache
-        uses: swatinem/rust-cache@a22603398250b864f7190077025cf752307154dc # v2.7.2
+        uses: swatinem/rust-cache@23bce251a8cd2ffc3c1075eaa2367cf899916d84 # v2.7.3
 
       - name: Clippy check
         run: make clippy
@@ -75,7 +75,7 @@ jobs:
           toolchain: stable
 
       - name: Rust Cache
-        uses: swatinem/rust-cache@a22603398250b864f7190077025cf752307154dc # v2.7.2
+        uses: swatinem/rust-cache@23bce251a8cd2ffc3c1075eaa2367cf899916d84 # v2.7.3
 
       - name: Check documentation
         run: make doc
