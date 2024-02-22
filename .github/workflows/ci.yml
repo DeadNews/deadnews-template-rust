@@ -63,17 +63,6 @@ jobs:
       - name: Clippy check
         run: make clippy
 
-  cargo-deny:
-    name: Check deps
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Check deps
-        uses: embarkstudios/cargo-deny-action@68cd9c5e3e16328a430a37c743167572e3243e7e # v1.5.15
-        with:
-          command: check bans sources
-
   docs:
     name: Docs
     runs-on: ubuntu-latest

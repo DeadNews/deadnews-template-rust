@@ -17,5 +17,3 @@ jobs:
   docker:
     name: Docker
     uses: deadnews/deadnews-template-docker/.github/workflows/docker-reusable.yml@latest
-    with:
-      build-platforms: linux/amd64
