@@ -13,4 +13,5 @@ env_logger = "0.11.1"
 log = "0.4.20"
 
 [profile.release]
-lto = true
+lto = true   # Enable Link Time Optimization.
+strip = true # Remove debug symbols and reduce binary size.
