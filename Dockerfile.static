@@ -1,38 +1,29 @@
 # Build the application from source.
 FROM rust:1.76.0-slim@sha256:304e30dc3cdb0ac27a39ea4660cc813e5a4c0ff40ae13d8a072835826205cd0c as rust-builder
 
-ARG TARGET=x86_64-unknown-linux-musl
-
-ENV CARGO_HOME="/cache/cargo" \
-    RUSTUP_HOME="/cache/rustup"
+ENV CARGO_HOME="/cache/cargo"
 
 WORKDIR /app
 
 COPY Cargo.toml Cargo.lock ./
 COPY src/ ./src/
 
-# Install musl-tools to cross-compile the application for a lean image.
 # hadolint ignore=DL3008
+# Install musl-tools to cross-compile the application for a lean image.
 RUN --mount=type=cache,target="/var/cache/" \
     --mount=type=cache,target="/var/lib/apt/lists/" \
     apt-get update && apt-get install -y musl-tools
 
-# Add the musl target to the Rust toolchain.
-RUN --mount=type=cache,target=${RUSTUP_HOME} \
-    rustup default stable && \
-    rustup target add ${TARGET}
-
 # Build the application for the musl target.
 RUN --mount=type=cache,target=${CARGO_HOME} \
-    cargo build --release --locked --target ${TARGET}
+    rustup target add x86_64-unknown-linux-musl && \
+    cargo build --release --locked --target x86_64-unknown-linux-musl
 
 # Deploy the application binary into a lean image.
 FROM gcr.io/distroless/static-debian12:latest@sha256:4a2c1a51ae5e10ec4758a0f981be3ce5d6ac55445828463fce8dff3a355e0b75 AS runtime
 LABEL maintainer "DeadNews <aurczpbgr@mozmail.com>"
 
-ARG TARGET
-
-COPY --from=rust-builder /app/target/${TARGET}/release/deadnews-template-rust /usr/local/bin/deadnews-template-rust
+COPY --from=rust-builder /app/target/x86_64-unknown-linux-musl/release/deadnews-template-rust /usr/local/bin/deadnews-template-rust
 
 USER nonroot:nonroot
 EXPOSE 8080
