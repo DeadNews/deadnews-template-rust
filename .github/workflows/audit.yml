@@ -29,3 +29,14 @@ jobs:
         uses: actions-rs/audit-check@35b7b53b1e25b55642157ac01b4adceb5b9ebef3 # v1.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+  cargo-deny:
+    name: Check deps
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check deps
+        uses: embarkstudios/cargo-deny-action@68cd9c5e3e16328a430a37c743167572e3243e7e # v1.5.15
+        with:
+          command: check bans sources

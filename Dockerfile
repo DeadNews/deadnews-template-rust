@@ -7,6 +7,7 @@ WORKDIR /app
 
 COPY Cargo.toml Cargo.lock ./
 COPY src/ ./src/
+
 RUN --mount=type=cache,target=${CARGO_HOME} \
     cargo build --release --locked
 
