@@ -8,11 +8,10 @@ WORKDIR /app
 COPY Cargo.toml Cargo.lock ./
 COPY src/ ./src/
 
-# hadolint ignore=DL3008
 # Install musl-tools to cross-compile the application for a lean image.
 RUN --mount=type=cache,target="/var/cache/" \
     --mount=type=cache,target="/var/lib/apt/lists/" \
-    apt-get update && apt-get install -y musl-tools
+    apt-get update && apt-get install -y --no-install-recommends musl-tools
 
 # Build the application for the musl target.
 RUN --mount=type=cache,target=${CARGO_HOME} \
