@@ -9,7 +9,7 @@ keywords = ["template", "sample"]
 
 [dependencies]
 actix-web = "4.5.1"
-env_logger = "0.11.1"
+env_logger = "0.11.3"
 log = "0.4.20"
 
 [profile.release]
