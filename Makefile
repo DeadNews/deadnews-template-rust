@@ -1,16 +1,16 @@
-.PHONY: all clean test checks default docker
+.PHONY: all clean default build install checks pc test
 
 default: build
 
 build:
 	cargo build
 
-pc-install:
+install:
 	pre-commit install
 
-checks: pc-run test
+checks: pc test
 
-pc-run:
+pc:
 	pre-commit run -a
 
 test:
@@ -24,11 +24,3 @@ clippy:
 
 doc:
 	cargo doc --no-deps --document-private-items --all-features --workspace --examples
-
-docker: compose-up
-
-compose-up:
-	docker compose up --build
-
-compose-down:
-	docker compose down
