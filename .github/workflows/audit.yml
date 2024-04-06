@@ -37,6 +37,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Check deps
-        uses: embarkstudios/cargo-deny-action@64015a69ee7ee08f6c56455089cdaf6ad974fd15 # v1.6.1
+        uses: embarkstudios/cargo-deny-action@b01e7a8cfb1f496c52d77361e84c1840d8246393 # v1.6.2
         with:
           command: check bans sources
