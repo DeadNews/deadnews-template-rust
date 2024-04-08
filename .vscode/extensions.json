@@ -1,3 +1,7 @@
 {
-  "recommendations": ["rust-lang.rust-analyzer", "serayuzgur.crates"]
+  "recommendations": [
+    "rust-lang.rust-analyzer",
+    "serayuzgur.crates",
+    "swellaby.vscode-rust-test-adapter"
+  ]
 }
