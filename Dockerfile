@@ -13,7 +13,7 @@ RUN --mount=type=cache,target=${CARGO_HOME} \
 
 # Deploy the application binary into a lean image.
 FROM gcr.io/distroless/cc-debian12:latest@sha256:7a01d633f75120af59c71489e0911fa8b6512673a3ff0b999522b4221ab4d86a AS runtime
-LABEL maintainer "DeadNews <aurczpbgr@mozmail.com>"
+LABEL maintainer "DeadNews <deadnewsgit@gmail.com>"
 
 COPY --from=rust-builder /app/target/release/deadnews-template-rust /usr/local/bin/deadnews-template-rust
 
