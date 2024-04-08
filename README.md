@@ -10,8 +10,14 @@
 
 ## Installation
 
-### Cargo
+Cargo
 
-- Install the rust toolchain in order to have cargo installed by following
-  [this](https://www.rust-lang.org/tools/install) guide.
-- run `cargo install deadnews-template-rust`
+```sh
+cargo install deadnews-template-rust
+```
+
+Docker
+
+```sh
+docker pull ghcr.io/deadnews/deadnews-template-rust:latest
+```
