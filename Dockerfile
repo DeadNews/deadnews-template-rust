@@ -1,5 +1,5 @@
 # Build the application from source.
-FROM rust:1.78.0-slim@sha256:0fea967628dc796a2b9d1d57ddb3af3b3f0a35b6c8c0e23690dbe0ceb71a2dc9 as rust-builder
+FROM rust:1.79.0-slim@sha256:ac56da5ed2128aa656ecdab1ecc5620f4117524166eef1a96da4247e9fa04bd4 as rust-builder
 
 ENV CARGO_HOME="/cache/cargo"
 
