@@ -25,4 +25,4 @@ jobs:
       dockerfile: Dockerfile.static
       flavor: |
         suffix=-static
-        latest=false
+        onlatest=true
