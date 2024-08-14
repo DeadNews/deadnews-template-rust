@@ -8,6 +8,9 @@ build:
 install:
 	pre-commit install
 
+update:
+	cargo update
+
 checks: pc test
 
 pc:

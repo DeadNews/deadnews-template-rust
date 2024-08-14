@@ -8,9 +8,9 @@ license = "MIT"
 keywords = ["template", "sample"]
 
 [dependencies]
-actix-web = "4.5.1"
-env_logger = "0.11.3"
-log = "0.4.21"
+actix-web = "4.9.0"
+env_logger = "0.11.5"
+log = "0.4.22"
 
 [profile.release]
 lto = true   # Enable Link Time Optimization.
