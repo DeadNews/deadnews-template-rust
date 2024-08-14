@@ -1,10 +1,10 @@
 # Changelog
 
-## [0.1.6-alpha.0](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.5...v0.1.6-alpha.0) - 2024-08-14
+## [0.1.6](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.5...v0.1.6) - 2024-08-14
 
 ### ⚙️ CI/CD
 
-- _(github)_ update workflows - ([8587ceb](https://github.com/DeadNews/deadnews-template-rust/commit/8587cebaa8419f0f75b198065fd92f4dc3d6c8a0))
+- _(github)_ update workflows ([#54](https://github.com/DeadNews/deadnews-template-rust/issues/54)) - ([37ce7ec](https://github.com/DeadNews/deadnews-template-rust/commit/37ce7ece616a56a1273d7bf9e3046ee9acb2c34f))
 
 ## [0.1.5](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.4...v0.1.5) - 2024-08-14
 
