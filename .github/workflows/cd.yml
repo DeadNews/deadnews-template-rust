@@ -26,7 +26,10 @@ jobs:
 
       - name: Set version in Cargo.toml
         run: |
-          sed "s|^version =.*$|version = ${GITHUB_REF_NAME#v}|" -i Cargo.toml
+          sed "s|^version =.*$|version = '${GITHUB_REF_NAME#v}'|" -i Cargo.toml
+
+      - name: Cat Cargo.toml
+        run: cat Cargo.toml
 
       - name: Publishing on crates.io
         run: cargo publish --locked
