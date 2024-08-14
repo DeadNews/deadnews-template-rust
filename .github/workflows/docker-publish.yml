@@ -24,5 +24,4 @@ jobs:
     with:
       dockerfile: Dockerfile.static
       flavor: |
-        suffix=-static
-        onlatest=true
+        suffix=-static,onlatest=true
