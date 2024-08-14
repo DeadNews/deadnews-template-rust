@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.5-alpha.2](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.4...v0.1.5-alpha.2) - 2024-08-14
+## [0.1.5-alpha.3](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.4...v0.1.5-alpha.3) - 2024-08-14
 
 ### 📚 Documentation
 
@@ -15,6 +15,7 @@
 
 ### ⚙️ CI/CD
 
+- _(github)_ use dynamic versioning - ([60b3d7e](https://github.com/DeadNews/deadnews-template-rust/commit/60b3d7ef1fd0be7b5e7f2a2515f8b70f19d70085))
 - _(github)_ use dynamic versioning - ([284e416](https://github.com/DeadNews/deadnews-template-rust/commit/284e4162904462900a801de6a6a30792bbd3467a))
 - _(github)_ use dynamic versioning - ([dba7b33](https://github.com/DeadNews/deadnews-template-rust/commit/dba7b33f85b0222d108eabe80741f018543f0082))
 - _(github)_ update `deadnews-template-docker` to `main` branch - ([dc0e276](https://github.com/DeadNews/deadnews-template-rust/commit/dc0e276269848f36f48d7241e663252c15df6845))
