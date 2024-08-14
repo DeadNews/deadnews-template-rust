@@ -1,14 +1,17 @@
 # Changelog
 
-## [unreleased]
+## [0.1.5-alpha.0](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.4...v0.1.5-alpha.0) - 2024-08-14
 
 ### 📚 Documentation
 
+- _(changelog)_ update git-cliff config - ([5c3be00](https://github.com/DeadNews/deadnews-template-rust/commit/5c3be00243add491a1c14b02f9d85176c4caf6e3))
 - _(changelog)_ add `git-cliff` ([#38](https://github.com/DeadNews/deadnews-template-rust/issues/38)) - ([10f7513](https://github.com/DeadNews/deadnews-template-rust/commit/10f75132678adf867e671551eeaf9e1e37585c5e))
+- _(readme)_ update - ([b6a2921](https://github.com/DeadNews/deadnews-template-rust/commit/b6a292161af8661ce2e7037ee487447505cd9a79))
 
 ### 🧹 Chores
 
 - _(typos)_ ignore short words - ([2ca0b40](https://github.com/DeadNews/deadnews-template-rust/commit/2ca0b40f5eebaae5618fc0b28776eb40e85cf826))
+- _(vscode)_ replace `crates` with `dependi` - ([4ee173c](https://github.com/DeadNews/deadnews-template-rust/commit/4ee173c414574278eafe3f2c57056d3e8ea2be89))
 
 ### ⚙️ CI/CD
 
@@ -16,6 +19,9 @@
 
 ### ⬆️ Dependencies
 
+- _(deps)_ update - ([33e24d8](https://github.com/DeadNews/deadnews-template-rust/commit/33e24d8a54ec82533746b6c8fb161d7597b65761))
+- _(deps)_ update rust crate actix-web to v4.8.0 ([#48](https://github.com/DeadNews/deadnews-template-rust/issues/48)) - ([e328e45](https://github.com/DeadNews/deadnews-template-rust/commit/e328e45b56058ed77f732ded9f3152b2e6a58018))
+- _(deps)_ update rust crate log to v0.4.22 ([#45](https://github.com/DeadNews/deadnews-template-rust/issues/45)) - ([71c4cd1](https://github.com/DeadNews/deadnews-template-rust/commit/71c4cd1e80d10f7e581b06909cb0c5aa18671caf))
 - _(deps)_ update rust crate actix-web to v4.6.0 ([#44](https://github.com/DeadNews/deadnews-template-rust/issues/44)) - ([abdd8cf](https://github.com/DeadNews/deadnews-template-rust/commit/abdd8cfc0b078732babd847ef7ac3f18272f0759))
 
 ## [0.1.4](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.3...v0.1.4) - 2024-03-22
