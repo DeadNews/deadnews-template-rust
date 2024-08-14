@@ -1,4 +1,4 @@
-.PHONY: all clean default build install checks pc test
+.PHONY: all clean default build install checks lint pc test
 
 default: build
 
@@ -11,19 +11,22 @@ install:
 update:
 	cargo update
 
-checks: pc test
+checks: pc lint test
 
 pc:
 	pre-commit run -a
 
-test:
-	cargo test --all-features --workspace
+lint: fmt clippy
 
 fmt:
 	cargo fmt --all --check
 
 clippy:
 	cargo clippy --all-targets --all-features --workspace -- -D warnings
+
+test:
+	cargo test --all-features --workspace
+
 
 doc:
 	cargo doc --no-deps --document-private-items --all-features --workspace --examples
