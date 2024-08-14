@@ -20,4 +20,6 @@ Docker
 
 ```sh
 docker pull ghcr.io/deadnews/deadnews-template-rust:latest
+# or
+docker pull ghcr.io/deadnews/deadnews-template-rust:latest-static
 ```
