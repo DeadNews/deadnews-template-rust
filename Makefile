@@ -12,21 +12,15 @@ update:
 	cargo update
 
 checks: pc lint test
-
+lint: fmt clippy
 pc:
 	pre-commit run -a
-
-lint: fmt clippy
-
 fmt:
 	cargo fmt --all --check
-
 clippy:
 	cargo clippy --all-targets --all-features --workspace -- -D warnings
-
 test:
 	cargo test --all-features --workspace
-
 
 doc:
 	cargo doc --no-deps --document-private-items --all-features --workspace --examples
