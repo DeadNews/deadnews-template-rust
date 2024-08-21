@@ -36,7 +36,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
-        toolchain: [stable]
+        toolchain: [stable, stable minus 1 releases]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
