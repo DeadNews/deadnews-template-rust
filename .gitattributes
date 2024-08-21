@@ -1,2 +1,2 @@
 .vscode/*.json linguist-language=jsonc
-Dockerfile.* linguist-language=dockerfile
+Dockerfile* linguist-language=dockerfile
