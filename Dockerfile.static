@@ -1,5 +1,5 @@
 # Build the application from source.
-FROM rust:1.84.1-slim@sha256:69fbd6ab81b514580bc14f35323fecb09feba9e74c5944ece9a70d9a2a369df0 AS rust-builder
+FROM rust:1.86.0-slim@sha256:9c1ef35ab804dc78361948794f60748e79a7a2e297580604b288590bc52ebdaa AS rust-builder
 
 ENV CARGO_HOME="/cache/cargo"
 
@@ -19,7 +19,7 @@ RUN --mount=type=cache,target=${CARGO_HOME} \
     cargo build --release --locked --target x86_64-unknown-linux-musl
 
 # Deploy the application binary into a lean image.
-FROM gcr.io/distroless/static-debian12:debug@sha256:ea6a51495f94a482dc431cd247bbace8f9a096ed6397005995245520ce5afcfe AS runtime
+FROM gcr.io/distroless/static-debian12:debug@sha256:5c474275684bbf271ec40502ab50158b2f9826de5877d8feec27e22e8d6ee3d2 AS runtime
 LABEL maintainer="DeadNews <deadnewsgit@gmail.com>"
 
 ENV SERVICE_PORT=8000
