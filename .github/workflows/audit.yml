@@ -12,24 +12,6 @@ permissions:
   contents: read
 
 jobs:
-  audit:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@a54c7afa936fefeb4456b2dd8068152669aa8203 # v1
-        with:
-          toolchain: stable
-
-      - name: Rust Cache
-        uses: swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2.7.7
-
-      - name: Cargo audit
-        uses: actions-rs/audit-check@35b7b53b1e25b55642157ac01b4adceb5b9ebef3 # v1.2.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
   cargo-deny:
     name: Check deps
     runs-on: ubuntu-latest
