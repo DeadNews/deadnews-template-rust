@@ -1,6 +1,6 @@
 .PHONY: all clean default build install checks lint pc test
 
-default: build
+default: checks
 
 build:
 	cargo build
