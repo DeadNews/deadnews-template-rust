@@ -5,6 +5,9 @@ default: build
 build:
 	cargo build
 
+goreleaser:
+	goreleaser --clean --snapshot --skip=publish
+
 install:
 	pre-commit install
 

@@ -36,7 +36,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        toolchain: [stable, stable minus 1 releases]
+        toolchain: [stable] # stable minus 1 releases
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -78,26 +78,30 @@ jobs:
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
 
-  github-deploy:
-    name: Release to GitHub
+  goreleaser:
+    name: GoReleaser
     if: github.ref_type == 'tag'
     needs: [lint, tests]
     environment: github-releases
     permissions:
       contents: write
     env:
-      CHANGELOG: https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md
-      PRERELEASE: ${{ contains(github.ref, 'alpha') || contains(github.ref, 'beta') }}
+      DRAFT: ${{ contains(github.ref, 'alpha') || contains(github.ref, 'beta') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Create GitHub Release
-        run: |
-          gh release create ${{ github.ref_name }} \
-            --title ${{ github.ref_name }} \
-            --notes="See [the CHANGELOG](${{ env.CHANGELOG }}) for more details." \
-            --draft=${{ env.PRERELEASE }} \
-            --prerelease=${{ env.PRERELEASE }}
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@888c2e1ea69ab0d4330cbf0af1ecc7b68f368cc1 # v1
+        with:
+          toolchain: stable
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@9c156ee8a17a598857849441385a2041ef570552 # v6.3.0
+        with:
+          args: release --clean --draft=${{ env.DRAFT }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# TODO: Publish to PyPi
