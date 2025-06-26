@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.7-alpha.2](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.6...v0.1.7-alpha.2) - 2025-06-26
+## [0.1.7-alpha.4](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.6...v0.1.7-alpha.4) - 2025-06-26
 
 ### 🧹 Chores
 
@@ -9,6 +9,7 @@
 ### 👷 Build
 
 - _(docker)_ add `healthcheck` ([#56](https://github.com/DeadNews/deadnews-template-rust/issues/56)) - ([cc59f78](https://github.com/DeadNews/deadnews-template-rust/commit/cc59f7806b1ce73b55d326c89ab8a18f02e7b219))
+- add `goreleaser` - ([8a8c46a](https://github.com/DeadNews/deadnews-template-rust/commit/8a8c46a158476717e6a4bcb5ec03a4726aad7f84))
 - add `goreleaser` - ([c9716f4](https://github.com/DeadNews/deadnews-template-rust/commit/c9716f461f65db7a890188ea441d6f0f92334330))
 - add `goreleaser` - ([0930f20](https://github.com/DeadNews/deadnews-template-rust/commit/0930f204830ae1c403b1d7d43e2874907d7a9111))
 - add `goreleaser` - ([4878bba](https://github.com/DeadNews/deadnews-template-rust/commit/4878bba69c7cf6472b1e1f0fa3219e774b9dab2b))
