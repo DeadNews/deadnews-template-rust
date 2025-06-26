@@ -1,8 +1,7 @@
 version: 2
 
 builds:
-  - dir: src
-    builder: rust
+  - builder: rust
     flags:
       - --release
       - --locked
