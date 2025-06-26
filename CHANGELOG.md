@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.1.7-alpha.0](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.6...v0.1.7-alpha.0) - 2025-06-26
+
+### 🧹 Chores
+
+- _(config)_ migrate renovate config ([#67](https://github.com/DeadNews/deadnews-template-rust/issues/67)) - ([c32a6f3](https://github.com/DeadNews/deadnews-template-rust/commit/c32a6f3afefc7042a7914543c7f8bbff8e9bffb5))
+
+### 👷 Build
+
+- _(docker)_ add `healthcheck` ([#56](https://github.com/DeadNews/deadnews-template-rust/issues/56)) - ([cc59f78](https://github.com/DeadNews/deadnews-template-rust/commit/cc59f7806b1ce73b55d326c89ab8a18f02e7b219))
+- add `goreleaser` - ([4878bba](https://github.com/DeadNews/deadnews-template-rust/commit/4878bba69c7cf6472b1e1f0fa3219e774b9dab2b))
+
+### ⚙️ CI/CD
+
+- _(github)_ remove `macos` from tests matrix - ([c0cea57](https://github.com/DeadNews/deadnews-template-rust/commit/c0cea57c61f46b53bc251d3f2210a9859cb3b6d4))
+- _(github)_ add `oldstable` to matrix ([#57](https://github.com/DeadNews/deadnews-template-rust/issues/57)) - ([faad4ae](https://github.com/DeadNews/deadnews-template-rust/commit/faad4ae208cf20e5808ea8ee81e064c2ecbdb3e3))
+
+### ⬆️ Dependencies
+
+- _(deps)_ update rust crate log to v0.4.27 ([#80](https://github.com/DeadNews/deadnews-template-rust/issues/80)) - ([7bd4f37](https://github.com/DeadNews/deadnews-template-rust/commit/7bd4f3771be1f8bb6dc9bedbc9a74d9f5762de4e))
+- _(deps)_ update rust crate log to v0.4.25 ([#77](https://github.com/DeadNews/deadnews-template-rust/issues/77)) - ([669e42c](https://github.com/DeadNews/deadnews-template-rust/commit/669e42c01d361a691c63e86828f69f9c3b0f3425))
+- _(deps)_ update rust crate env_logger to v0.11.6 ([#75](https://github.com/DeadNews/deadnews-template-rust/issues/75)) - ([6cd5ef2](https://github.com/DeadNews/deadnews-template-rust/commit/6cd5ef20d539c40d74ae5a2bddb36747b6973b8c))
+
 ## [0.1.6](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.5...v0.1.6) - 2024-08-14
 
 ### ⚙️ CI/CD
