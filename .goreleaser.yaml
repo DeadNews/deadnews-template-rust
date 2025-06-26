@@ -2,6 +2,7 @@ version: 2
 
 builds:
   - builder: rust
+    command: build
     flags:
       - --release
       - --locked
