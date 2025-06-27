@@ -1,0 +1,24 @@
+version: 2
+
+builds:
+  - builder: rust
+    command: build
+    flags:
+      - --release
+      - --locked
+    targets:
+      - x86_64-unknown-linux-gnu
+
+release:
+  prerelease: auto
+  footer: |
+    See [the CHANGELOG]({{ .GitURL }}/blob/main/CHANGELOG.md) for more details.
+
+changelog:
+  sort: asc
+  use: git
+  filters:
+    exclude:
+      - ^chore
+      - ^test"
+      - ^(ci|build|chore)\(deps.*\)

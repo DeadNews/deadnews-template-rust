@@ -13,7 +13,7 @@ async fn main() -> std::io::Result<()> {
         .unwrap_or(8000);
 
     // Log the start of the HTTP server
-    log::info!("Starting HTTP server at http://0.0.0.0:{}.", port);
+    log::info!("Starting HTTP server at http://0.0.0.0:{port}.");
 
     // Create and run the HTTP server
     HttpServer::new(|| {
