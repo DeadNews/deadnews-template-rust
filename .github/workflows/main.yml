@@ -91,6 +91,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
+        arch: [x64]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -98,8 +99,9 @@ jobs:
       - name: Build wheel with maturin
         uses: PyO3/maturin-action@e10f6c464b90acceb5f640d31beda6d586ba7b4a # v1.49.3
         with:
-          command: sdist
-          args: --out dist
+          command: build
+          args: --release --out dist
+          target: ${{ matrix.arch }}
 
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc # v1.12.4
