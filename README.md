@@ -3,6 +3,7 @@
 > Rust Project Template
 
 [![Rust: Crates.io](https://img.shields.io/crates/v/deadnews-template-rust.svg?logo=rust&logoColor=white)](https://crates.io/crates/deadnews-template-rust)
+[![PyPI: Version](https://img.shields.io/pypi/v/deadnews-template-rust?logo=pypi&logoColor=white)](https://pypi.org/project/deadnews-template-rust)
 [![GitHub: Release](https://img.shields.io/github/v/release/deadnews/deadnews-template-rust?logo=github&logoColor=white)](https://github.com/deadnews/deadnews-template-rust/releases/latest)
 [![Docker: ghcr](https://img.shields.io/badge/docker-gray.svg?logo=docker&logoColor=white)](https://github.com/deadnews/deadnews-template-rust/pkgs/container/deadnews-template-rust)
 [![Rust: Docs.rs](https://docs.rs/deadnews-template-rust/badge.svg?logo=rust&logoColor=white)](https://docs.rs/deadnews-template-rust)
@@ -15,6 +16,12 @@ Cargo
 
 ```sh
 cargo install deadnews-template-rust
+```
+
+PyPI
+
+```sh
+pipx install deadnews-template-rust
 ```
 
 Docker
