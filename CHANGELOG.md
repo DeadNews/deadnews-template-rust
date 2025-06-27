@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.7-alpha.8](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.6...v0.1.7-alpha.8) - 2025-06-27
+## [1.0.0](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.6...v1.0.0) - 2025-06-27
 
 ### 🧹 Chores
 
@@ -9,17 +9,10 @@
 ### 👷 Build
 
 - _(docker)_ add `healthcheck` ([#56](https://github.com/DeadNews/deadnews-template-rust/issues/56)) - ([cc59f78](https://github.com/DeadNews/deadnews-template-rust/commit/cc59f7806b1ce73b55d326c89ab8a18f02e7b219))
-- add `goreleaser` - ([9c1c7bf](https://github.com/DeadNews/deadnews-template-rust/commit/9c1c7bf5afac4e3db2b9f0ea4668bfd126009ef0))
-- add `goreleaser` - ([8a8c46a](https://github.com/DeadNews/deadnews-template-rust/commit/8a8c46a158476717e6a4bcb5ec03a4726aad7f84))
-- add `goreleaser` - ([c9716f4](https://github.com/DeadNews/deadnews-template-rust/commit/c9716f461f65db7a890188ea441d6f0f92334330))
-- add `goreleaser` - ([0930f20](https://github.com/DeadNews/deadnews-template-rust/commit/0930f204830ae1c403b1d7d43e2874907d7a9111))
-- add `goreleaser` - ([4878bba](https://github.com/DeadNews/deadnews-template-rust/commit/4878bba69c7cf6472b1e1f0fa3219e774b9dab2b))
+- add `goreleaser` ([#86](https://github.com/DeadNews/deadnews-template-rust/issues/86)) - ([7dd719a](https://github.com/DeadNews/deadnews-template-rust/commit/7dd719ace50db963ee76e802deb32dbcd30b4e8c))
 
 ### ⚙️ CI/CD
 
-- _(github)_ add deployment to `pypi` - ([5acf890](https://github.com/DeadNews/deadnews-template-rust/commit/5acf89036f2de557c19583e87628c926e8b3924a))
-- _(github)_ add deployment to `pypi` - ([ee809ac](https://github.com/DeadNews/deadnews-template-rust/commit/ee809ac1bb620260446000a150afdfa948b90f29))
-- _(github)_ add deployment to `pypi` - ([2b88305](https://github.com/DeadNews/deadnews-template-rust/commit/2b883050a96dda4bf5f7195a3e686675a8c9eb7b))
 - _(github)_ remove `macos` from tests matrix - ([c0cea57](https://github.com/DeadNews/deadnews-template-rust/commit/c0cea57c61f46b53bc251d3f2210a9859cb3b6d4))
 - _(github)_ add `oldstable` to matrix ([#57](https://github.com/DeadNews/deadnews-template-rust/issues/57)) - ([faad4ae](https://github.com/DeadNews/deadnews-template-rust/commit/faad4ae208cf20e5808ea8ee81e064c2ecbdb3e3))
 
