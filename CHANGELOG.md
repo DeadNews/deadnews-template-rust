@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.7-alpha.6](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.6...v0.1.7-alpha.6) - 2025-06-27
+## [0.1.7-alpha.7](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.6...v0.1.7-alpha.7) - 2025-06-27
 
 ### 🧹 Chores
 
@@ -17,6 +17,7 @@
 
 ### ⚙️ CI/CD
 
+- _(github)_ add deployment to `pypi` - ([ee809ac](https://github.com/DeadNews/deadnews-template-rust/commit/ee809ac1bb620260446000a150afdfa948b90f29))
 - _(github)_ add deployment to `pypi` - ([2b88305](https://github.com/DeadNews/deadnews-template-rust/commit/2b883050a96dda4bf5f7195a3e686675a8c9eb7b))
 - _(github)_ remove `macos` from tests matrix - ([c0cea57](https://github.com/DeadNews/deadnews-template-rust/commit/c0cea57c61f46b53bc251d3f2210a9859cb3b6d4))
 - _(github)_ add `oldstable` to matrix ([#57](https://github.com/DeadNews/deadnews-template-rust/issues/57)) - ([faad4ae](https://github.com/DeadNews/deadnews-template-rust/commit/faad4ae208cf20e5808ea8ee81e064c2ecbdb3e3))
