@@ -8,16 +8,23 @@ WORKDIR /app
 COPY Cargo.toml Cargo.lock ./
 COPY src/ ./src/
 
+# Install musl-tools to cross-compile the application for a lean image.
+RUN --mount=type=cache,target="/var/cache/" \
+    --mount=type=cache,target="/var/lib/apt/lists/" \
+    apt-get update && apt-get install -y --no-install-recommends musl-tools
+
+# Build the application for the musl target.
 RUN --mount=type=cache,target=${CARGO_HOME} \
-    cargo build --release --locked
+    rustup target add x86_64-unknown-linux-musl && \
+    cargo build --release --locked --target x86_64-unknown-linux-musl
 
 # Deploy the application binary into a lean image.
-FROM gcr.io/distroless/cc-debian12@sha256:eccec5274132c1be0ce5d2c8e6fe41033e64af5e987ccee9007826e4c012069d AS runtime
+FROM gcr.io/distroless/static-debian12@sha256:b7b9a6953e7bed6baaf37329331051d7bdc1b99c885f6dbeb72d75b1baad54f9 AS runtime
 LABEL maintainer="DeadNews <deadnewsgit@gmail.com>"
 
 ENV SERVICE_PORT=8000
 
-COPY --from=rust-builder /app/target/release/deadnews-template-rust /bin/template-rust
+COPY --from=rust-builder /app/target/x86_64-unknown-linux-musl/release/deadnews-template-rust /bin/template-rust
 
 USER nonroot:nonroot
 EXPOSE ${SERVICE_PORT}
