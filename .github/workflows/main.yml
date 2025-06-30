@@ -30,8 +30,8 @@ jobs:
       - name: Lint code
         run: make lint
 
-  tests:
-    name: Tests
+  test:
+    name: Test
     strategy:
       fail-fast: false
       matrix:
@@ -54,7 +54,7 @@ jobs:
   cargo-deploy:
     name: Release to crates.io
     if: github.ref_type == 'tag'
-    needs: [lint, tests]
+    needs: [lint, test]
     environment: crates.io
     runs-on: ubuntu-latest
     steps:
@@ -83,7 +83,7 @@ jobs:
   pypi-deploy:
     name: Release to PyPI
     if: github.ref_type == 'tag'
-    needs: [lint, tests]
+    needs: [lint, test]
     environment: pypi
     permissions:
       id-token: write
@@ -114,7 +114,7 @@ jobs:
   goreleaser:
     name: GoReleaser
     if: github.ref_type == 'tag'
-    needs: [lint, tests]
+    needs: [lint, test]
     environment: github-releases
     permissions:
       contents: write
