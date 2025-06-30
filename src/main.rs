@@ -1,14 +1,14 @@
 use axum::{
+    Router,
     extract::State,
     http::StatusCode,
     response::{IntoResponse, Json},
     routing::get,
-    Router,
 };
 use clap::Parser;
 use serde::{Deserialize, Serialize};
 use serde_json::json;
-use sqlx::{postgres::PgPoolOptions, PgPool};
+use sqlx::{PgPool, postgres::PgPoolOptions};
 use std::{env, net::SocketAddr};
 use tracing::info;
 

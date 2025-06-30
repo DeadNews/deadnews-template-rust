@@ -1,11 +1,11 @@
 use axum::{
+    Router,
     body::Body,
     http::{Request, StatusCode},
-    Router,
 };
 use serde_json::Value;
-use sqlx::{postgres::PgPoolOptions, PgPool};
-use testcontainers::{runners::AsyncRunner, ContainerAsync};
+use sqlx::{PgPool, postgres::PgPoolOptions};
+use testcontainers::{ContainerAsync, runners::AsyncRunner};
 use testcontainers_modules::postgres::Postgres;
 use tower::ServiceExt;
 

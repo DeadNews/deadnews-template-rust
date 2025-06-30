@@ -1,6 +1,6 @@
 [package]
 description = "Rust Project Template"
-edition = "2021"
+edition = "2024"
 keywords = ["sample", "template"]
 license = "MIT"
 name = "deadnews-template-rust"
