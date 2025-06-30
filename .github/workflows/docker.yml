@@ -17,11 +17,3 @@ jobs:
   docker:
     name: Docker
     uses: deadnews/deadnews-template-docker/.github/workflows/docker-reusable.yml@main
-
-  docker-static:
-    name: Docker Static
-    uses: deadnews/deadnews-template-docker/.github/workflows/docker-reusable.yml@main
-    with:
-      dockerfile: Dockerfile.static
-      flavor: |
-        suffix=-static,onlatest=true
