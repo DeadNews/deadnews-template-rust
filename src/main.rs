@@ -59,7 +59,7 @@ async fn main() {
         .and_then(|s| s.parse().ok())
         .unwrap_or(8000);
 
-    // Get database DSN from environment (required for production)
+    // Get database DSN from environment
     let database_url = env::var("SERVICE_DSN").unwrap_or_else(|_| {
         tracing::error!("SERVICE_DSN environment variable is required");
         std::process::exit(1);
