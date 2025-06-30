@@ -3,6 +3,7 @@
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit"
-    }
+    },
+    "editor.inlayHints.enabled": "offUnlessPressed" // toggled with Ctrl+Alt
   }
 }

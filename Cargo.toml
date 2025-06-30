@@ -1,6 +1,6 @@
 [package]
 name = "deadnews-template-rust"
-version = "0.0.0"                                                 # dynamically updated by ci/cd
+version = "0.0.0"                                                 # Dynamically updated by ci/cd
 edition = "2021"
 description = "Rust Project Template"
 repository = "https://github.com/DeadNews/deadnews-template-rust"
@@ -8,10 +8,26 @@ license = "MIT"
 keywords = ["template", "sample"]
 
 [dependencies]
-actix-web = "4.9.0"
-env_logger = "0.11.5"
-log = "0.4.22"
+axum = "0.8.4"
+tokio = { version = "1.0", features = ["rt-multi-thread", "net", "macros"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["json"] }
+sqlx = { version = "0.8", features = [
+    "runtime-tokio",
+    "tls-rustls-ring",
+    "postgres",
+] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+clap = { version = "4.0", features = ["derive"] }
+reqwest = "0.12"
+
+[dev-dependencies]
+testcontainers = "0.24"
+testcontainers-modules = { version = "0.12", features = ["postgres"] }
+tower = "0.5"
 
 [profile.release]
-lto = true   # Enable Link Time Optimization.
-strip = true # Remove debug symbols and reduce binary size.
+lto = true   # Enable Link Time Optimization
+strip = true # Remove debug symbols and reduce binary size

@@ -1,7 +1,7 @@
 {
   "recommendations": [
     "fill-labs.dependi",
-    "rust-lang.rust-analyzer",
+    "rust-lang.rust-analyzer", // require the rust-analyzer binary to be in $PATH
     "swellaby.vscode-rust-test-adapter"
   ]
 }

@@ -1,6 +1,9 @@
-.PHONY: all clean default build install checks lint pc test
+.PHONY: all clean default run build install checks lint pc test release
 
 default: checks
+
+run:
+	cargo run
 
 build:
 	cargo build
@@ -15,30 +18,29 @@ update:
 	cargo update
 
 checks: pc lint test
-lint: fmt clippy
 pc:
 	pre-commit run -a
-fmt:
+lint:
 	cargo fmt --all --check
-clippy:
-	cargo clippy --all-targets --all-features --workspace -- -D warnings
+	cargo clippy --all-targets --all-features -- -D warnings
 test:
-	cargo test --all-features --workspace
+	cargo test --all-features
+
+test-cov:
+	cargo llvm-cov --ignore-filename-regex 'test.rs'
 
 doc:
-	cargo doc --no-deps --document-private-items --all-features --workspace --examples
+	cargo doc --no-deps --document-private-items --all-features --examples
 
 bumped:
 	git cliff --bumped-version
 
-# make release-tag_name
-# make release-$(git cliff --bumped-version)-alpha.0
-release-%: checks
-	git cliff -o CHANGELOG.md --tag $*
+# make release TAG=$(git cliff --bumped-version)-alpha.0
+release: checks
+	git cliff -o CHANGELOG.md --tag $(TAG)
 	pre-commit run --files CHANGELOG.md || pre-commit run --files CHANGELOG.md
 	git add CHANGELOG.md
-	git commit -m "chore(release): prepare for $*"
+	git commit -m "chore(release): prepare for $(TAG)"
 	git push
-	git tag -a $* -m "chore(release): $*"
-	git push origin $*
-	git tag --verify $*
+	git tag -a $(TAG) -m "chore(release): $(TAG)"
+	git push origin $(TAG)

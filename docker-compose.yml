@@ -1,11 +1,27 @@
 services:
-  service:
+  template-rust:
     build: .
     healthcheck:
-      test: wget --no-verbose --tries=1 --spider http://127.0.0.1:8000/health || exit 1
+      test:
+        [CMD, /bin/template-rust, --healthcheck, http://127.0.0.1:8000/health]
       interval: 1m
       retries: 3
       timeout: 10s
       start_period: 1m
     ports:
       - 127.0.0.1:8000:8000/tcp
+    environment:
+      SERVICE_DSN: postgres://postgres:postgres@postgres:5432/postgres
+
+  postgres:
+    image: postgres
+    healthcheck:
+      test: [CMD, pg_isready, -U, postgres]
+      interval: 1m
+      retries: 3
+      timeout: 10s
+      start_period: 1m
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres

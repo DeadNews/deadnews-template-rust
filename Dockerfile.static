@@ -19,17 +19,15 @@ RUN --mount=type=cache,target=${CARGO_HOME} \
     cargo build --release --locked --target x86_64-unknown-linux-musl
 
 # Deploy the application binary into a lean image.
-FROM gcr.io/distroless/static-debian12:debug@sha256:112141358ce173d72800bb0e85b4d9dda7505ffc37203e70e475425d5a0d097b AS runtime
+FROM gcr.io/distroless/static-debian12@sha256:b7b9a6953e7bed6baaf37329331051d7bdc1b99c885f6dbeb72d75b1baad54f9 AS runtime
 LABEL maintainer="DeadNews <deadnewsgit@gmail.com>"
 
 ENV SERVICE_PORT=8000
 
-COPY --from=rust-builder /app/target/x86_64-unknown-linux-musl/release/deadnews-template-rust /usr/deadnews-template-rust
-
-RUN ["/busybox/sh", "-c", "ln -s /busybox/sh /bin/sh"]
+COPY --from=rust-builder /app/target/x86_64-unknown-linux-musl/release/deadnews-template-rust /usr/template-rust
 
 USER nonroot:nonroot
 EXPOSE ${SERVICE_PORT}
 HEALTHCHECK NONE
 
-ENTRYPOINT ["/bin/deadnews-template-rust"]
+ENTRYPOINT ["/bin/template-rust"]
