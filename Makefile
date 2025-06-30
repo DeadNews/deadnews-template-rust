@@ -15,7 +15,7 @@ install:
 	pre-commit install
 
 update:
-	cargo update
+	cargo update --recursive
 
 checks: pc lint test
 pc:
@@ -30,7 +30,7 @@ test-cov:
 	cargo llvm-cov --ignore-filename-regex 'test.rs'
 
 doc:
-	cargo doc --no-deps --document-private-items --all-features --examples
+	cargo doc --no-deps --document-private-items --all-features
 
 bumped:
 	git cliff --bumped-version

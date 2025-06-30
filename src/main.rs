@@ -33,7 +33,7 @@ struct DatabaseInfo {
 }
 
 #[tokio::main]
-async fn main() -> anyhow::Result<()> {
+async fn main() {
     // Initialize structured logging
     tracing_subscriber::fmt().json().init();
 
@@ -60,15 +60,20 @@ async fn main() -> anyhow::Result<()> {
         .unwrap_or(8000);
 
     // Get database DSN from environment (required for production)
-    let database_url = env::var("SERVICE_DSN")
-        .map_err(|_| anyhow::anyhow!("SERVICE_DSN environment variable is required"))?;
+    let database_url = env::var("SERVICE_DSN").unwrap_or_else(|_| {
+        tracing::error!("SERVICE_DSN environment variable is required");
+        std::process::exit(1);
+    });
 
     // Create database connection pool
     let pool = PgPoolOptions::new()
         .max_connections(5)
         .connect(&database_url)
         .await
-        .map_err(|e| anyhow::anyhow!("Failed to create database pool: {}", e))?;
+        .unwrap_or_else(|e| {
+            tracing::error!("Failed to create database pool: {}", e);
+            std::process::exit(1);
+        });
 
     let app_state = AppState { db: pool };
 
@@ -83,10 +88,17 @@ async fn main() -> anyhow::Result<()> {
     info!("Starting HTTP server at http://{}", addr);
 
     // Run the app with hyper
-    let listener = tokio::net::TcpListener::bind(addr).await?;
-    axum::serve(listener, app).await?;
+    let listener = tokio::net::TcpListener::bind(addr)
+        .await
+        .unwrap_or_else(|e| {
+            tracing::error!("Failed to bind to address {}: {}", addr, e);
+            std::process::exit(1);
+        });
 
-    Ok(())
+    axum::serve(listener, app).await.unwrap_or_else(|e| {
+        tracing::error!("Server error: {}", e);
+        std::process::exit(1);
+    });
 }
 
 async fn health_check(url: &str) -> anyhow::Result<()> {
