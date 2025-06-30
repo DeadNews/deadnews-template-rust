@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0-alpha.0](https://github.com/DeadNews/deadnews-template-rust/compare/v1.0.0...v1.1.0-alpha.0) - 2025-06-30
+
+### 🚀 Features
+
+- add database connection handling - ([6e7ba4f](https://github.com/DeadNews/deadnews-template-rust/commit/6e7ba4f2a2fa970487e97d044824980b26d2235e))
+- add database connection handling - ([4ebd469](https://github.com/DeadNews/deadnews-template-rust/commit/4ebd469ab21ed06a38d78eacda5e00cb72cb1c9c))
+
 ## [1.0.0](https://github.com/DeadNews/deadnews-template-rust/compare/v0.1.6...v1.0.0) - 2025-06-27
 
 ### 🧹 Chores
