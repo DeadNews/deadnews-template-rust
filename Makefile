@@ -28,6 +28,10 @@ test:
 
 test-cov:
 	cargo llvm-cov --ignore-filename-regex 'test.rs'
+	cargo llvm-cov report --lcov --output-path lcov.info
+
+test-codecov:
+	cargo llvm-cov --ignore-filename-regex 'test.rs' --codecov --output-path codecov.json
 
 doc:
 	cargo doc --no-deps --document-private-items --all-features
