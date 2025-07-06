@@ -2,10 +2,9 @@ name: Docker
 
 on:
   push:
-    tags: ["v*.*.*"]
+    tags: [v*.*.*]
   pull_request:
-    paths:
-      - "Dockerfile*"
+    paths: [Dockerfile*]
 
 permissions:
   contents: read

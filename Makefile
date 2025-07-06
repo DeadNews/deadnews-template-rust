@@ -1,6 +1,6 @@
-.PHONY: all clean default run build install checks lint pc test release
+.PHONY: all clean default run build install check lint pc test release
 
-default: checks
+default: check
 
 run:
 	cargo run
@@ -17,7 +17,7 @@ install:
 update:
 	cargo update --recursive
 
-checks: pc lint test
+check: pc lint test
 pc:
 	pre-commit run -a
 lint:
@@ -40,7 +40,7 @@ bumped:
 	git cliff --bumped-version
 
 # make release TAG=$(git cliff --bumped-version)-alpha.0
-release: checks
+release: check
 	git cliff -o CHANGELOG.md --tag $(TAG)
 	pre-commit run --files CHANGELOG.md || pre-commit run --files CHANGELOG.md
 	git add CHANGELOG.md

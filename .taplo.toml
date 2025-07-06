@@ -1,3 +1,11 @@
 [formatting]
 allowed_blank_lines = 1
-column_width = 120
+column_width        = 120
+align_entries       = true
+
+[[rule]]
+include = ["**/Cargo.toml"]
+keys    = ["dependencies", "dev-dependencies"]
+
+[rule.formatting]
+reorder_keys = true
