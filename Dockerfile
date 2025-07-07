@@ -1,5 +1,4 @@
-# Build the application from source.
-FROM rust:1.88.0-slim@sha256:d62f2139b1f523b4b048c59af6c5e8f2cbf6ab04e91ff87b2b9afb3fab3b930a AS rust-builder
+FROM rust:1.88.0-slim@sha256:d62f2139b1f523b4b048c59af6c5e8f2cbf6ab04e91ff87b2b9afb3fab3b930a AS builder
 
 ENV CARGO_HOME="/cache/cargo"
 
@@ -18,13 +17,12 @@ RUN --mount=type=cache,target=${CARGO_HOME} \
     rustup target add x86_64-unknown-linux-musl && \
     cargo build --release --locked --target x86_64-unknown-linux-musl
 
-# Deploy the application binary into a lean image.
 FROM gcr.io/distroless/static-debian12@sha256:b7b9a6953e7bed6baaf37329331051d7bdc1b99c885f6dbeb72d75b1baad54f9 AS runtime
-LABEL maintainer="DeadNews <deadnewsgit@gmail.com>"
+LABEL maintainer="deadnews <deadnewsgit@gmail.com>"
 
 ENV SERVICE_PORT=8000
 
-COPY --from=rust-builder /app/target/x86_64-unknown-linux-musl/release/deadnews-template-rust /bin/template-rust
+COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/deadnews-template-rust /bin/template-rust
 
 USER nonroot:nonroot
 EXPOSE ${SERVICE_PORT}
